@@ -1,16 +1,24 @@
 // Require the necessary discord.js classes
-const { Client, Intents } = require('discord.js');
+const Discord = require('discord.js');
 const { token } = require('./credentials.json');
-
+const newUsers = [];
 // Create a new client instance
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS"] })
 
-// When the client is ready, run this code (only once)
+const Addrole = (member) => {
+  var role= member.guild.roles.cache.find(role => role.id === "883020079086854165");
+  member.roles.add(role);
+}
+
 client.once('ready', () => {
+  client.user.setStatus("Supporting the allies")
 	console.log('Ready!');
 });
+
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('881734698399846414').send("Welcome crusader"); 
+  const channel = client.channels.cache.find(channel => channel.name === "general")
+  channel.send("Welcome to the server "+member.displayName)
+  Addrole(member);
 });
-// Login to Discord with your client's token
+
 client.login(token);
