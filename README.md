@@ -1,2 +1,2 @@
 # Mars141
-This is a bot for the anti zoohpile server
+This is a simple greeting bot 
