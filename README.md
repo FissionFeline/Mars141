@@ -5,3 +5,6 @@ It will on join send a message to a desired channel and give the joining user a 
 Check credentials.json 
 and index.js
 Also make sure your bots role is ontop of the role it will give in the roles config section in your discord servers settings
+
+This isnt anything too advanced 
+Keep an eye out for my new bot Nova prospect
